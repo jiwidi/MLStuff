@@ -13,7 +13,7 @@ targetTrain=[]
 dataTest=np.array([])
 targetTest=[]
 
-with open('iris.csv', 'rb') as csvfile:
+with open('../data/iris.csv', 'rb') as csvfile:
     data=csvfile.read().decode().split('\n')
     train=int(len(data)*0.8)
     test=len(data)-train
@@ -55,7 +55,7 @@ feature_columns = [tf.contrib.layers.real_valued_column("", dimension=4)]
 
 #Let's build a DNN with the classifier class
 classifier=tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,
-                                          hidden_units=[64,32],
+                                          hidden_units=[32],
                                           model_dir="/tmp/iris_dnn",
                                           n_classes=3,
                                           dropout=None,)
